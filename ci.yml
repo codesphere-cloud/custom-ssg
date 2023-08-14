@@ -3,7 +3,7 @@ prepare:
     - name: Install Dependencies
       command: npm install
     - name: Build static pages
-      command: generate:fromLocalData      
+      command: npm run generate:fromLocalData      
 test:
   steps: []
 run:
