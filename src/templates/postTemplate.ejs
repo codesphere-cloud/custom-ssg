@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <title>Codesphere blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../main.css" rel="stylesheet" />
+        <link href="../article.css" rel="stylesheet" />
+        <!-- Additional meta tags, styles, scripts... -->
+        <script>
+          // Your JavaScript filtering logic...
+        </script>
+      </head>
+    <body>
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title><%= title %></title>
+            <!-- Remember to link Tailwind's CSS here if you're not inlining it -->
+        </head>
+        
+        <body class="bg-gray-100">
+        
+            <%- include("/partials/header.ejs") %>
+
+        
+            <!-- Hero Section (newest article) -->
+            <section class="text-gray-700 body-font">
+                <div class="container mx-auto flex px-5 py-24 flex-col items-center">
+                    <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
+                            <%= title %>
+                        </h1>
+                        <p class="mb-8 leading-relaxed">
+                            <%= excerpt %>
+                        </p>
+                        <div class="post-image h-auto object-cover flex flex-shrink-0 rounded-md overflow-hidden w-full">
+                            <img class="h-auto object-cover m-0 w-full" src="<%= image %>" alt="<%= title %>" />
+                        </div>
+                        <div class="mt-16 w-full">
+                            <%- content %>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        
+        
+        </body>
+        </html>
+        
+    </body>
+</html>

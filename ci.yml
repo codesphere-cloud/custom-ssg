@@ -1,0 +1,12 @@
+prepare:
+  steps:
+    - name: Install Dependencies
+      command: npm install
+    - name: Build static pages
+      command: npm run generate      
+test:
+  steps: []
+run:
+  steps:
+    - name: Start Server
+      command: npm run start:prod

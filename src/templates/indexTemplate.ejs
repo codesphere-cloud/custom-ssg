@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codesphere blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./main.css" rel="stylesheet" />
+    <link href="./index.css" rel="stylesheet" />
+    <!-- Additional meta tags, styles, scripts... -->
+    <script>
+      // Your JavaScript filtering logic...
+    </script>
+  </head>
+  <body>
+    <%- include("/partials/header.ejs") %>
+    <section class="w-full bg-dark-bg flex justify-center items-center pb-44 pt-60 -mt-20 h-fit relative">
+        <% for(let i = 0; i < 1 && i < posts.length; i++) { %> 
+            <% let post = posts[i]; %>
+            <div class="container w-4/5 h-full flex flex-col align-middle items-center gap-12 mx-auto justify-between z-40 featured-post">
+                <!-- Image Div -->
+                <div class="h-auto object-cover flex flex-shrink-0 rounded-md overflow-hidden w-full lg:w-1/3 lg:items-start lg:justify-start">
+                    <img class="h-auto object-cover m-0 w-full" src="<%= post.feature_image %>" alt="<%= post.title %>" />
+                </div>
+                <!-- Text Div -->
+                <div class="flex-shrink flex gap-4 flex-col relative text-center	">
+                    <h2 class="text-white text-5xl font-semibold break-words"><%= post.title %></h2>
+                    <p class="text-gray-500 text-sm"><%= new Date(post.published_at).toLocaleDateString('en-US') %></p>
+                    <p class="text-gray-300 text-md font-300"><%= post.excerpt %></p>
+                    <a class="text-white text-md font-semibold" href="/posts/<%= post.slug %>">Read the full article</a>
+
+                </div>
+            </div>
+        <% } %>
+    </section>
+    
+    <div class="container mx-auto px-8">
+        <section class="w-full flex justify-start items-start pb-44 pt-60 -mt-20 h-fit relative flex-col">
+            <h1 class="text-black text-4xl font-semibold break-words">All Articles</h1>
+            <div class="posts-grid grid grid-cols-3 gap-8 pt-16">
+              <% for(let i = 0; i < posts.length; i++) { %>
+                  <div class="post-item flex w-full flex-col">
+                      <!-- Image Div -->
+                      <div class="post-image h-auto object-cover flex flex-shrink-0 rounded-md overflow-hidden w-full">
+                          <img class="h-auto object-cover m-0 w-full" src="<%= posts[i].feature_image %>" alt="<%= posts[i].title %>" />
+                      </div>
+                      <!-- Text Div -->
+                      <div class="post-text flex-shrink flex gap-4 flex-col relative text-left">
+                          <h2 class="text-black text-2xl font-semibold break-words mt-4"><%= posts[i].title %></h2>
+                          <p class="text-gray-500 text-sm"><%= new Date(posts[i].published_at).toLocaleDateString('en-US') %></p>
+                          <p class="text-gray-500 text-md font-300"><%= posts[i].excerpt %></p>
+                          <a class="text-black text-md font-semibold" href="/posts/<%= posts[i].slug %>">Read the full article</a>
+                      </div>
+                  </div>
+              <% } %>
+          </div>
+          
+        </section>
+    </div>
+  </body>
+</html>
